@@ -98,22 +98,6 @@ The following options can be used:
 * `systemId`: Optional. Set to `'string'` to change the id representing the
   system.
 
-### Global configuration
-
-```js
-// Configure behaviour globally
-// All collection using this behaviour will use these settings as defaults
-// The settings below are the package default settings
-CollectionBehaviours.configure('softRemovable',{
-  removed: 'removed',
-  removedAt: 'removedAt',
-  removedBy: 'removedBy',
-  restoredAt: 'restoredAt',
-  restoredBy: 'restoredAt',
-  systemId: '0'
-});
-```
-
 ### Notes
 
 * This package attaches a schema to the collection if `aldeed:simple-schema`,
