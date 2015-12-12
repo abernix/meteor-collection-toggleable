@@ -27,7 +27,9 @@ CollectionBehaviours.attach(collection, "toggleable", {
   toggledAt: "cancelledAt",
   toggledBy: "cancelledBy",
   untoggledAt: "uncancelledAt",
-  untoggledBy: "uncancelledBy"
+  untoggledBy: "uncancelledBy",
+  omit: true,
+  toggled: "cancelled" // This is the option NAME to include omitted from find/findOne
 });
 ```
 
@@ -51,10 +53,12 @@ Order.uncancel({_id: 'BFpDzGuWG8extPwrE'});
 Orders.find({});
 
 // Find only posts that have been soft removed
-Orders.find({removed: true});
+// This is using the actual field name, defined in options as 'toggle'
+Orders.find({cancelled: true});
 
 // Find all posts including removed
-Orders.find({}, {removed: true});
+// This is where you use the 'toggled' option, as the option name.
+Orders.find({}, {cancelled: true});
 ```
 
 #### Publish
