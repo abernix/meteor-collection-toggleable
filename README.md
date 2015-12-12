@@ -17,7 +17,7 @@ Basic usage examples.
 #### Attach
 
 ```js
-Orders = new Mongo.Collection('posts');
+Orders = new Mongo.Collection('orders');
 
 //Add a custom toggle
 CollectionBehaviours.attach(collection, "toggleable", {
@@ -49,14 +49,14 @@ Order.uncancel({_id: 'BFpDzGuWG8extPwrE'});
 #### Find
 
 ```js
-// Find all orders except cancelled posts
+// Find all orders except cancelled orders
 Orders.find({});
 
-// Find only posts that have been soft removed
+// Find only orders that have been cancelled
 // This is using the actual field name, defined in options as 'toggle'
 Orders.find({cancelled: true});
 
-// Find all posts including removed
+// Find all orders including cancelled
 // This is where you use the 'toggled' option, as the option name.
 Orders.find({}, {cancelled: true});
 ```
@@ -67,7 +67,7 @@ For you to be able to find soft removed documents on the client you will need
 to explicitly publish those. The example code below belongs in server-side code.
 
 ```js
-Meteor.publish('posts', function() {
+Meteor.publish('orders', function() {
   return Orders.find({});
 });
 
