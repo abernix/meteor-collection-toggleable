@@ -43,7 +43,7 @@ Orders.cancel({_id: 'BFpDzGuWG8extPwrE'});
 Orders.restore('BFpDzGuWG8extPwrE');
 
 // Actually remove document from collection
-Order.uncancel({_id: 'BFpDzGuWG8extPwrE'});
+Orders.uncancel({_id: 'BFpDzGuWG8extPwrE'});
 ```
 
 #### Find
